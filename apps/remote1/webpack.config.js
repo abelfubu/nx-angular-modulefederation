@@ -9,7 +9,7 @@ sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
 
 module.exports = {
   output: {
-    uniqueName: 'host1',
+    uniqueName: 'remote1',
     publicPath: 'auto',
   },
   optimization: {
@@ -23,8 +23,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      remotes: {
-        remote1: 'remote1@http://localhost:4201/remoteEntry.js',
+      name: 'remote1',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './Module': 'apps/remote1/src/app/remote-entry/entry.module.ts',
       },
       shared: {
         '@angular/core': { singleton: true, strictVersion: true },

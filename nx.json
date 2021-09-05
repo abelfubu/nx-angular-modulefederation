@@ -33,6 +33,13 @@
     "host1-e2e": {
       "tags": [],
       "implicitDependencies": ["host1"]
+    },
+    "remote1": {
+      "tags": []
+    },
+    "remote1-e2e": {
+      "tags": [],
+      "implicitDependencies": ["remote1"]
     }
   }
 }
